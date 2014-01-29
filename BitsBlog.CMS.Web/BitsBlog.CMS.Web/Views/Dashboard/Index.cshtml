@@ -1,0 +1,33 @@
+﻿@model BitsBlog.CMS.Web.Models.ViewModels.DashboardViewModel
+           
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div id="right-column-content">
+<h1 class="h1-header-bits-blog-red">Manage Blogs (2 total)</h1>
+
+<div class="blog-info-box">
+<h2 class="blog-title-header">Quarks & Bits Blog</h2>
+<span class="blog-info-text">7 Posts, last published on Jan 23, 2012&nbsp;-&nbsp;<a href="#" class="default-bits-blog-link">VIEW BLOG</a></span>
+<ul class="manage-blog-links">
+<li class="default-list-link"><a href="/blogpost/create" class="default-bits-blog-link">Create post</a></li>
+<li class="default-list-link"><a href="/BlogPostLibrary/Index" class="default-bits-blog-link">View posts</a></li>
+<li class="default-list-link"><a href="#" class="default-bits-blog-link">Manage comments</a></li>
+<li class="default-list-link"><a href="/BlogSettings/Update" class="default-bits-blog-link">Manage settings</a></li>
+</ul>
+</div>
+
+<div class="blog-info-box">
+<h2 class="blog-title-header">Maecenas Hendrerit Lorem Vel Interdum Ornare</h2>
+<span class="blog-info-text">7 Posts, last published on Jan 23, 2012&nbsp;-&nbsp;<a href="#" class="default-bits-blog-link">VIEW BLOG</a></span>
+<ul class="manage-blog-links">
+<li class="default-list-link"><a href="/blogpost/create" class="default-bits-blog-link">Create post</a></li>
+<li class="default-list-link"><a href="/BlogPostLibrary/Index" class="default-bits-blog-link">View posts</a></li>
+<li class="default-list-link"><a href="#" class="default-bits-blog-link">Manage comments</a></li>
+<li class="default-list-link"><a href="/BlogSettings/Update" class="default-bits-blog-link">Manage settings</a></li>
+</ul>
+</div>
+
+</div>

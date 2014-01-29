@@ -1,0 +1,78 @@
+﻿@model BitsBlog.Core.Blog
+           
+@{
+    ViewBag.Title = "Blog Settings";
+    Layout = "~/Views/Shared/_BlogSettingsLayout.cshtml";
+
+    //for testing & development only
+    BitsBlog.Core.Structs.Author testAuthor = new BitsBlog.Core.Structs.Author(1, "Teresa","Brooks","Nicole",null,true);  
+}
+
+<div id="right-column-content">
+<div id="form-message-area">
+<span class="errorTextStyle">[Error messages go here]</span>
+<span class="successTextStyle">[success messages go here]</span>
+</div>
+
+@using (Html.BeginForm("CreateBlog", "BlogSettings", FormMethod.Post, new { id = "BlogSettingsForm" }))
+{ 
+    <fieldset> 
+        <div class="settings-page-section">
+        <h3 class="settings-section-header">Name</h3>
+        <span class="instructional-text">Please enter your blog name. This name will be not show readers.</span>
+        <div class="form-field">
+            @Html.TextBoxFor(model => model.Name, new { @class = "textBox-x-large" }) 
+        </div>
+        </div>
+
+        <div class="settings-page-section">
+        <h3 class="settings-section-header">Blog API Identifier</h3>
+        <span class="instructional-text">When you make calls to retrieve data via the Bits-Blog Engine API you will need this to identify your blog.</span>
+        <div class="form-field">
+             @Html.Label("Blog Unique Identifier")
+             <span>@Html.DisplayFor(model => model.BlogUUID)fsadfas</span> 
+        </div>
+        </div>
+
+        <div class="settings-page-section">
+        <h3 class="settings-section-header">Author(s)</h3>
+        <span class="instructional-text">Select users that are allowed to publish content for this blog. Please note authors can only edit posts they create unless they are administrators. </span>
+        <div class="form-field">
+        @Html.EditorFor(model => testAuthor)
+        </div>
+        </div>
+
+        <div class="settings-page-section">
+        <h3 class="settings-section-header">User Comments Settings</h3>
+        <span class="instructional-text">Please select settings for this blog.</span>
+        <div class="form-field-small-bottom-margin">
+        @Html.LabelFor(model => model.AllowReaderComments, "Allow reader comments", new { @class = "list-style-form-element-text-normal" })
+        @Html.CheckBoxFor(model => model.AllowReaderComments)
+        </div>
+
+        <div class="form-field-small-bottom-margin">
+        @Html.LabelFor(model => model.MustApproveReaderComments, "Approve comments before they are published", new { @class = "list-style-form-element-text-normal" })
+        @Html.CheckBoxFor(model => model.MustApproveReaderComments)
+        </div>
+
+        <span style="font-size: 12px; display:block; float:left; margin: 3px 0px 7px 0px; width: 100%">Required comments form fields:</span><br />
+        <div class="form-field-small-bottom-margin">
+        @Html.CheckBoxFor(model => model.RequireNameField)
+        @Html.LabelFor(model => model.RequireNameField, "Name", new { @class = "list-style-form-element-text-normal" })
+        </div>
+        <div class="form-field-small-bottom-margin">
+        @Html.CheckBoxFor(model => model.RequireEmailField)
+        @Html.LabelFor(model => model.RequireEmailField, "Email address", new { @class = "list-style-form-element-text-normal" })
+        </div>
+        <div class="form-field-small-bottom-margin">
+        @Html.CheckBoxFor(model => model.RequireCAPTCHA)
+        @Html.LabelFor(model => model.RequireCAPTCHA, "CAPTCHA", new { @class = "list-style-form-element-text-normal" })
+        </div>
+
+        </div>
+
+        @Html.Partial("_FormActionButtonControl")
+    </fieldset> 
+}
+
+</div>

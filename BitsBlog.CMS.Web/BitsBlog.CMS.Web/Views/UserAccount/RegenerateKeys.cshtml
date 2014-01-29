@@ -1,0 +1,51 @@
+﻿@model BitsBlog.CMS.Web.Models.ViewModels.APIKeyModel
+           
+@{
+    ViewBag.Title = "Regenerate API Keys";
+    Layout = "~/Views/Shared/_UserAccountLayout.cshtml";
+}
+
+<div id="right-column-content">
+<div id="form-message-area">
+<span class="successTextStyle">@ViewBag.SuccessMessage</span>
+<span class="errorTextStyle">@ViewBag.ErrorMessage</span>
+</div>
+
+@using (Html.BeginForm("RegenerateAPIKeys", "UserAccount", FormMethod.Post, new { id = "RegenerateKeysForm" }))
+{ 
+   <span class="errorTextStyle">@Html.ValidationSummary("Ooops, please correct the following errors. Either you have entered invalid values or left required fields blank.")</span>
+    <fieldset>
+        <div class="settings-page-section">
+        <h3 class="settings-section-header">Change Password</h3>
+        <span class="instructional-text">Please enter your current password to generate your API Keys.</span>
+            <div class="form-field">
+                <label for="Password">Password<span class="required-mark">*</span></label>
+                @Html.PasswordFor(model => model.CurrentPassword, new { @class = "textBox-large" })
+            </div> 
+           
+           @if (Model != null && Model.AccessKey != null && Model.SecretKey != null)
+            {
+                <div id="security-id-display-section">
+                <div class="settings-page-section">
+                <h3 class="settings-section-header">API Security Keys</h3>
+                <span class="instructional-text">Please keep these keys safe! When you make calls to retrieve data via the Bits-Blog Engine API you will need these to identify the blog and as a means of authenticating your call.</span>
+                <div class="form-field">
+                        @Html.Label("User Access Key")
+                        <span>@Html.DisplayFor(model => model.AccessKey)</span> 
+                        @Html.HiddenFor(model => model.AccessKey)
+                </div>
+                <div class="form-field">
+                        @Html.Label("User Secrete Key") 
+                        <span>@Html.DisplayFor(model => model.SecretKey)</span>
+                        @Html.HiddenFor(model => model.SecretKey)  
+                </div>
+                </div>
+                </div>
+            }
+            
+        </div>
+        @Html.Partial("_FormActionButtonControl", ViewData)
+    </fieldset> 
+}
+
+</div>

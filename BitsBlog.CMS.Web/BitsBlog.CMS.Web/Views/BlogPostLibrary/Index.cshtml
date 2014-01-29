@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "Manage Blogs - View Post Library";
+    Layout = "~/Views/Shared/_BlogPostLibraryLayout.cshtml";
+}
+
+<div id="right-column-content">
+<h1 class="h1-header-bits-blog-red">Quarks & Bits Software Blog</h1>
+<div id="form-message-area">
+<span class="errorTextStyle">[Error messages go here]</span>
+<span class="successTextStyle">[success messages go here]</span>
+</div>
+
+
+@Html.Partial("_LibraryFormActionButtonControl")
+
+<table id="blog-post-table">
+<thead id="blog-post-table-head">
+<tr>
+    <td class="blog-post-table-icon-col"><input type="checkbox" /></td>
+    <td class="blog-post-table-date-col"><span id="date-header-text">Date Created</span>@*<span id="sort-arrow" class="down-arrow"><a href="#" class="replace-text date-sort">arrow</a></span>*@</td>
+    <td class="blog-post-table-message-col"><span id="message-header-text">Title</span></td>
+	<td class="blog-post-table-respond-col"><span id="action-header-text">Action</span></td>
+	
+</tr> 
+</thead>
+
+<tbody id="blog-post-table-body">   
+<tr>
+<td class="blog-post-table-icon-col"><input type="checkbox" /></td>
+<td class="blog-post-table-date-col-text">04/12/2012</td>
+<td><span class="blog-post-table-message-col">Your clever but informative blog title goes here...</span></td>
+<td class="table-col-center"><a href="#" class="table-action-link">EDIT</a>&nbsp;|&nbsp;<a href="#" class="table-action-link">DELETE</a></td>
+</tr>
+<tr>
+<td class="blog-post-table-icon-col"><input type="checkbox" /></td>
+<td class="blog-post-table-date-col-text">04/12/2012</td>
+<td><span class="blog-post-table-message-col">Your clever but informative blog title goes here...</span></td>
+<td class="table-col-center"><a href="#" class="table-action-link">EDIT</a>&nbsp;|&nbsp;<a href="#" class="table-action-link">DELETE</a></td>
+</tr>
+<tr>
+<td class="blog-post-table-icon-col"><input type="checkbox" /></td>
+<td class="blog-post-table-date-col-text">04/12/2012</td>
+<td><span class="blog-post-table-message-col">Your clever but informative blog title goes here...</span></td>
+<td class="table-col-center"><a href="#" class="table-action-link">EDIT</a>&nbsp;|&nbsp;<a href="#" class="table-action-link">DELETE</a></td>
+</tr>
+<tr>
+<td class="blog-post-table-icon-col"><input type="checkbox" /></td>
+<td class="blog-post-table-date-col-text">04/12/2012</td>
+<td><span class="blog-post-table-message-col">Your clever but informative blog title goes here...</span></td>
+<td class="table-col-center"><a href="#" class="table-action-link">EDIT</a>&nbsp;|&nbsp;<a href="#" class="table-action-link">DELETE</a></td>
+</tr>
+<tr>
+<td class="blog-post-table-icon-col"><input type="checkbox" /></td>
+<td class="blog-post-table-date-col-text">04/12/2012</td>
+<td><span class="blog-post-table-message-col">Your clever but informative blog title goes here...</span></td>
+<td class="table-col-center"><a href="#" class="table-action-link">EDIT</a>&nbsp;|&nbsp;<a href="#" class="table-action-link">DELETE</a></td>
+</tr>
+<tr>
+<td class="blog-post-table-icon-col"><input type="checkbox" /></td>
+<td class="blog-post-table-date-col-text">04/12/2012</td>
+<td><span class="blog-post-table-message-col">Your clever but informative blog title goes here...</span></td>
+<td class="table-col-center"><a href="#" class="table-action-link">EDIT</a>&nbsp;|&nbsp;<a href="#" class="table-action-link">DELETE</a></td>
+</tr>
+<tr>
+<td class="blog-post-table-icon-col"><input type="checkbox" /></td>
+<td class="blog-post-table-date-col-text">04/12/2012</td>
+<td><span class="blog-post-table-message-col">Your clever but informative blog title goes here...</span></td>
+<td class="table-col-center"><a href="#" class="table-action-link">EDIT</a>&nbsp;|&nbsp;<a href="#" class="table-action-link">DELETE</a></td>
+</tr>
+<tr>
+<td class="blog-post-table-icon-col"><input type="checkbox" /></td>
+<td class="blog-post-table-date-col-text">04/12/2012</td>
+<td><span class="blog-post-table-message-col">Your clever but informative blog title goes here...</span></td>
+<td class="table-col-center"><a href="#" class="table-action-link">EDIT</a>&nbsp;|&nbsp;<a href="#" class="table-action-link">DELETE</a></td>
+</tr>
+<tr>
+<td class="blog-post-table-icon-col"><input type="checkbox" /></td>
+<td class="blog-post-table-date-col-text">04/12/2012</td>
+<td><span class="blog-post-table-message-col">Your clever but informative blog title goes here...</span></td>
+<td class="table-col-center"><a href="#" class="table-action-link">EDIT</a>&nbsp;|&nbsp;<a href="#" class="table-action-link">DELETE</a></td>
+</tr>
+<tr>
+<td class="blog-post-table-icon-col"><input type="checkbox" /></td>
+<td class="blog-post-table-date-col-text">04/12/2012</td>
+<td><span class="blog-post-table-message-col">Your clever but informative blog title goes here...</span></td>
+<td class="table-col-center"><a href="#" class="table-action-link">EDIT</a>&nbsp;|&nbsp;<a href="#" class="table-action-link">DELETE</a></td>
+</tr>
+</tbody>
+
+</table>
+
+@Html.Partial("_LibraryPaginationControl")
+
+</div>
+

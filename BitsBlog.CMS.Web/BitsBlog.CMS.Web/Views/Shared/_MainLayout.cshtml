@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/reset.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/forms.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/bits_blog_main.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/ckeditor/contents.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.5.1.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/modernizr-1.7.min.js")" type="text/javascript"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/ckeditor/adapters/jquery.js")"></script>
+    <script language="javascript" type="text/javascript">
+      $(document).ready(function () {
+          if ($('.wysiwyg')) {
+              $('.wysiwyg').ckeditor();
+         
+              $('input[type=submit]').bind('click', function () {
+                  $('.wysiwyg').ckeditorGet().updateElement();
+              });
+          }//end of if
+      });
+      </script>
+</head>
+
+<body id="admin-body">
+<div id="body-admin-container">
+<div id="logo-banner-area">
+<a href="#" title="Quarks & Bits Blog - Powered By: Bits-Blog Engine" id="logoLink">
+<div class="logo">
+<h1 class="logoHeader">Logo</h1>
+</div>
+</a> 
+</div>
+
+<div id="subnav-area">
+<div id="subnav-links"><span id="signout-link-wrapper"><a href="/UserAccount/Logout/" class="subnav-link">SIGN OUT</a></span></div>
+</div>
+    <div id="content">
+        @RenderBody()
+     </div>
+</div>
+<div id="body-admin-footer">
+<img src="../../Images/System/bits_blog_badge.png" id="bits-blog-badge" alt="Powered By: Bits-Blog Engine!"/>
+<div id="copyright">&copy;&nbsp;2012 Quarks & Bits All Rights Reserved</div>
+</div>
+
+
+
+@*@if (IsSectionDefined("TextEditorJavascriptIncludes"))
+{
+    @RenderSection("TextEditorJavascriptIncludes");
+}*@
+</body>
+</html>

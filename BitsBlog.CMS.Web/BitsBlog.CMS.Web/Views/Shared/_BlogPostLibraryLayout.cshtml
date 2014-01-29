@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@Html.Partial("_PageHeaderControl")
+
+<div id="content-column-wrapper">
+
+<div id="left-column">
+<div id="left-column-content">
+@Html.Partial("_UserProfileBoxControl")
+@Html.Partial("_SystemMangementBoxControl")
+@Html.Partial("_ManageDocumentsBoxControl")
+</div>
+
+<div id="ie-7-clear-hack">&nbsp;</div>
+</div>
+
+<div id="right-column">@RenderBody()</div>
+
+</div>

@@ -1,0 +1,36 @@
+﻿@model BitsBlog.CMS.Web.Models.ViewModels.LoginViewModel
+           
+@{
+    ViewBag.Title = "Sign In";
+    Layout = "~/Views/Admin/_LoginLayout.cshtml";
+}
+
+<div id="login-form-container">
+<div id="login-form-header"><span id="login-text">Sign In</span></div>
+
+<div id="login-form-area">
+<div id="loginErrorMessagesArea">
+<span class="successTextStyle">@ViewBag.SuccessMessage</span>
+<span class="errorTextStyle">@ViewBag.ErrorMessage</span>
+</div>
+
+@using (Html.BeginForm("Login", "UserAccount", FormMethod.Post, new { id = "LoginForm" })) 
+{ 
+    @Html.ValidationSummary(true) 
+    <fieldset> 
+        <div class="form-field">
+            @Html.LabelFor(model => model.Username)  
+            @Html.TextBoxFor(model => model.Username, new { @class = "textBox-medium" }) 
+        </div> 
+        <div class="form-field">
+            @Html.LabelFor(model => model.Password)  
+            @Html.PasswordFor(model => model.Password, new { @class = "textBox-medium" }) 
+        </div> 
+        <p> 
+            <input type="submit" value="Sign In" name="login" id="login" class="login-submit-button"/> 
+        </p> 
+    </fieldset> 
+} 
+</div>
+</div>
+

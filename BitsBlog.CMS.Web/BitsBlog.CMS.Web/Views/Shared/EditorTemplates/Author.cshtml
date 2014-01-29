@@ -1,0 +1,7 @@
+﻿@model BitsBlog.Core.Structs.Author
+@using BitsBlog.CMS.Web.BitsBlogHtmlHelpers
+<span>
+    @Html.HiddenFor(model => model.UserId)
+    @Html.CheckBoxFor(x => x.IsSelected)
+    @Html.GetAuthorDisplayName(Model, "list-style-form-element-text-normal")
+</span>

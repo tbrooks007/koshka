@@ -1,0 +1,78 @@
+﻿@model BitsBlog.CMS.Web.Models.ViewModels.UserViewModel
+           
+<div class="settings-page-section">
+<h3 class="settings-section-header" style="margin-bottom: 25px;">User Settings</h3>
+@if (ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString() == "CreateUser")
+{
+    <h3 class="settings-section-header">User Settings</h3>
+    <span class="instructional-text">Password must be 10 characters long, must contain at least one capital letter, must contain letters and numbers and at least one special character.</span>
+}
+<div class="form-field">
+    <label for="FirstName">First Name<span class="required-mark">*</span></label>
+    @Html.TextBoxFor(model => model.FirstName, new { @class = "textBox-large" }) 
+</div> 
+<div class="form-field">
+    <label for="LastName">Last Name<span class="required-mark">*</span></label>
+    @Html.TextBoxFor(model => model.LastName, new { @class = "textBox-large" }) 
+</div> 
+
+@if (ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString() != "UpdateUser")
+{
+    <div class="form-field">
+        <label for="Username">Username<span class="required-mark">*</span></label>
+        @Html.TextBoxFor(model => model.Username, new { @class = "textBox-large" }) 
+    </div> 
+    <div class="form-field">
+        <label for="Password">Password<span class="required-mark">*</span></label>
+        @Html.PasswordFor(model => model.PasswordModel.CurrentPassword, new { @class = "textBox-large" })
+    </div>
+    <div class="form-field">
+        <label for="ComparePassword">Confirm Password<span class="required-mark">*</span></label>
+        @Html.PasswordFor(model => model.PasswordModel.ComparePassword, new { @class = "textBox-large" })
+    </div>  
+}
+else
+{
+    @Html.HiddenFor(model => model.Username)
+    @Html.HiddenFor(model => model.PasswordModel.CurrentPassword)
+    @Html.HiddenFor(model => model.PasswordModel.ComparePassword)
+}
+
+<div class="form-field">
+    <label for="EmailAddress">EmailAddress<span class="required-mark">*</span></label>
+    @Html.TextBoxFor(model => model.EmailAddress, new { @class = "textBox-large" }) 
+</div>
+<div class="form-field">
+    <label for="Role">User Role Assignments<span class="required-mark">*</span></label>
+    @Html.DropDownListFor(model => model.Role, new SelectList(Enum.GetValues(typeof(BitsBlog.Core.Enums.UserRole))), "Please select a role.")
+</div>  
+</div>
+    
+@if (Model != null && Model.Id > 0 && ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString() != "CreateUser")
+{
+    <div id="security-id-display-section">
+    <div class="settings-page-section">
+    <h3 class="settings-section-header">API Security Keys</h3>
+    <span class="instructional-text">Please keep these keys safe! When you make calls to retrieve data via the Bits-Blog Engine API you will need these to identify the blog and as a means of authenticating your call.</span>
+    <div class="form-field">
+            @Html.Label("User Access Key")
+            <span>@Html.DisplayFor(model => model.AccessKey)</span> 
+            @Html.HiddenFor(model => model.AccessKey)
+    </div>
+    <div class="form-field">
+            @Html.Label("User Secrete Key") 
+            <span>@Html.DisplayFor(model => model.UniqueKey)</span>
+            @Html.HiddenFor(model => model.UniqueKey)  
+    </div>
+    </div>
+    </div>
+}
+        
+@*<div class="settings-page-section">
+<h3 class="settings-section-header">Profile Settings</h3>
+<div id="select-profile-photo-action-area"><span class="bold-12px">Select image (jpg, png and gif files only):</span><a href="#" class="default-red-link-box">Choose Image</a></div>
+<span class="instructional-text" id="selected-image-path">@Html.DisplayFor(model => model.ProfilePicturePath)Selected Image Path: C:/Desktop/blog_logo_small_72dpi.png</span>
+<div id="selected-profile-photo-display-area">
+<span class="bold-12px">Current profile image:</span>
+<img src="../../Images/System/user_created_system_images/default_profile_photo_thumbnail.png" id="user-profile-thumbnail" alt="User Profile Thumbnail"/></div>
+</div>*@

@@ -1,0 +1,23 @@
+﻿@model BitsBlog.CMS.Web.Models.ViewModels.UserViewModel
+           
+@{
+    ViewBag.Title = "Update User";
+    Layout = "~/Views/Shared/_UserAccountLayout.cshtml";
+}
+
+<div id="right-column-content">
+<div id="form-message-area">
+<span class="successTextStyle">@ViewBag.SuccessMessage</span>
+<span class="errorTextStyle">@ViewBag.ErrorMessage</span>
+</div>
+
+@using (Html.BeginForm("UpdateUser", "UserAccount", FormMethod.Post, new { id = "UserAccountForm" }))
+{ 
+    <span class="errorTextStyle">@Html.ValidationSummary("Ooops, please correct the following errors. Either you have entered invalid values or left required fields blank.")</span>
+    <fieldset> 
+        @Html.Partial("_UserAccountForm",Model)    
+        @Html.Partial("_FormActionButtonControl")
+    </fieldset> 
+}
+
+</div>

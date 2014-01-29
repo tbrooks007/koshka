@@ -1,0 +1,13 @@
+﻿@{ BitsBlog.Authentication.AuthUser user = (BitsBlog.Authentication.AuthUser)HttpContext.Current.Session[BitsBlog.Authentication.AuthSessionTags.AUTH_USER_BLOB]; }
+
+<div id="user-profile-box">
+<img src="../../Images/System/user_created_system_images/default_profile_photo_thumbnail.png" id="user-profile-thumbnail" alt="User Profile Thumbnail"/>
+<div id="user-profile-box-links-area">
+<span id="user-welcome-text">Welcome, @user.username</span>
+<ul id="user-profile-links">
+<li class="default-list-link"><a href="/UserAccount/UpdateUser/@user.Id" class="default-bits-blog-link">Edit profile</a></li>
+<li class="default-list-link"><a href="/UserAccount/ChangePassword" class="default-bits-blog-link">Change Password</a></li>
+<li class="default-list-link"><a href="/UserAccount/RegenerateAPIKeys" class="default-bits-blog-link">Regenerate API Keys</a></li>
+</ul>
+</div>
+</div>

@@ -1,0 +1,225 @@
+﻿errorTextStyle/* general form styles: start here */
+
+/*IE 7 hack added - get rid of the extra width in buttons */
+input[type="button"], input[type="reset"], input[type="submit"]
+{
+   overflow:visible;
+}
+
+input[type="text"] 
+{
+   border: 1px solid #cccccc;
+}
+
+.required-mark
+{
+    color: #ff0000;
+    font-weight: 900;
+    padding: 0px 0px 0px 5px;
+    font-size: 1.2em;
+}
+
+.field-validation-error 
+{
+    color: #ff0000;
+}
+
+.field-validation-valid 
+{
+    display: none;
+}
+
+.input-validation-error 
+{
+    border: 2px solid #ff0000 !important; /* override input[type="text"] style */
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors 
+{
+    font-weight: normal;
+    color: #ff0000;
+}
+
+.validation-summary-valid 
+{
+    display: none;
+}
+
+input[type="password"] 
+{
+   border: 1px solid #cccccc;
+}
+
+.form-field-small-bottom-margin
+{
+    margin: 0px 0px 3px 0px;
+    width: 488px;
+}
+
+.form-field
+{
+    margin: 0px 0px 15px 0px;
+    width: 488px;
+    float: left;
+}
+
+.textBox-medium
+{
+    width: 261px;
+    height: 23px;
+}
+
+.textBox-large
+{
+    width: 314px;
+    height: 23px;
+}
+
+.textBox-x-large
+{
+    width: 561px;
+    height: 23px;
+}
+
+.textBox-x-small
+{
+    width: 103px;
+    height: 23px;
+}
+
+
+.errorTextStyle
+{
+    color: #ff0000;
+    font-weight: normal;
+    font-size: 12px;  
+}
+
+.errorTextStyle span
+{
+    display: block;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.successTextStyle
+{
+    color: #657b11;
+    font-weight: 900;
+    font-size: 12px;    
+}
+
+#right-column-content .errorTextStyle
+{
+    color: #ff0000;
+    font-weight: 900;
+    font-size: 12px;
+    display: block;
+    clear: both;
+    margin-bottom: 18px;    
+}
+
+#right-column-content .successTextStyle
+{
+    color: #657b11;
+    font-weight: 900;
+    font-size: 12px;
+    display: block;
+    clear: both;
+    margin-bottom: 18px;    
+}
+
+.list-style-form-element-text-normal
+{
+     font-size: 12px !important;
+     font-weight: normal !important;
+     display: inline-block !important;
+}
+
+.list-style-form-element-text-bold
+{
+     font-size: 12px !important;
+     font-weight: bold !important;
+     display: inline-block !important;
+}
+
+/* general form styles: end here */
+
+/* log in form styles: start here */
+
+#LoginForm
+{
+    margin: 19px 0px 0px 0px;
+    width: 300px;
+}
+
+#LoginForm label
+{
+    font-weight: 900;
+    display: block;
+    font-size: 11px;
+    margin: 0px 0px 3px 0px;
+}
+
+#loginErrorMessagesArea
+{
+    margin: 0px 0px 0px 0px;
+}
+
+#login-form-area
+{
+    margin: 98px 0px 0px 120px;
+}
+
+.login-submit-button
+{
+    background-color: #940f0f;
+    border: 1px solid #940f0f;
+    padding: 8px;
+    color: #ffffff;
+    font-weight: 900;
+    cursor: pointer;
+    -moz-border-radius: 3px;
+	-webkit-border-radius: 3px;     
+	border-radius: 3px;
+	text-transform:uppercase;
+}
+
+/* log in form styles: end here */
+
+/* settings pages styles: start here */
+
+#UserAccountForm label
+{
+    font-weight: 900;
+    display: block;
+    font-size: 11px;
+    margin: 0px 0px 3px 0px;
+}
+
+#BlogSettingsForm label
+{
+    font-weight: 900;
+    display: block;
+    font-size: 11px;
+    margin: 0px 0px 3px 0px;
+}
+
+#SystemSettingsForm label
+{
+    font-weight: 900;
+    display: block;
+    font-size: 11px;
+    margin: 0px 0px 3px 0px;
+}
+
+#ChangePasswordForm label
+{
+    font-weight: 900;
+    display: block;
+    font-size: 11px;
+    margin: 0px 0px 3px 0px;
+}
+
+/* settings pages styles: end here */

@@ -1,0 +1,49 @@
+﻿@model BitsBlog.Core.BlogPost
+           
+@{
+    ViewBag.Title = "Document Library - Create Post";
+    Layout = "~/Views/Shared/_BlogPostLayout.cshtml";
+
+    //for testing & development only
+    BitsBlog.Core.BlogPost testPost = new BitsBlog.Core.BlogPost();
+    testPost.BlogName = "Quarks & Bits Software Blog";
+}
+
+<div id="right-column-content">
+<h1 class="h1-header-bits-blog-red">@testPost.BlogName</h1>
+<div id="form-message-area">
+<span class="errorTextStyle">[Error messages go here]</span>
+<span class="successTextStyle">[success messages go here]</span>
+</div>
+
+@using (Html.BeginForm("Create", "BlogPost", FormMethod.Post, new { id = "BlogPostForm" }))
+{ 
+    <fieldset> 
+        <div class="settings-page-section-without-bottom-border">
+        <h3 class="settings-section-header-top-margin">Title</h3>
+        <div class="form-field">
+            @Html.TextBoxFor(model => model.Title, new { @class = "textBox-x-large"}) 
+        </div>
+        </div>
+
+        <div class="settings-page-section-without-bottom-border">
+        <h3 class="settings-section-header">Body</h3>
+        <div id="text-editor-container">
+        @Html.TextAreaFor(model => model.Body, new { @class = "wysiwyg", rows = "15", columns = "130" })
+        </div>
+        </div>
+
+        <div id="blog-post-meta-data-area">
+        <div id="blog-post-meta-data-header"><span class="white-bold-text-normal">Document Information</span></div>
+        <div id="blog-post-meta-data">
+        <span class="normal-bold-box-display-text">Created:&nbsp;<span class="normal-text">Jan 15th, 2011</span></span>
+        <span class="normal-bold-box-display-text">Update:&nbsp;<span class="normal-text">Jan 15th, 2011</span></span>
+        <span class="normal-bold-box-display-text">Author:&nbsp;<span class="normal-text">Teresa Nicole Brooks</span></span>
+        </div>
+        </div>
+
+        @Html.Partial("_FormActionButtonControl")
+    </fieldset> 
+}
+
+</div>

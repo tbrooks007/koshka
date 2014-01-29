@@ -1,0 +1,52 @@
+﻿@model BitsBlog.Core.SystemSettings
+
+@{
+    ViewBag.Title = "System Settings";
+    Layout = "~/Views/Shared/_SystemSettingsLayout.cshtml";
+}
+
+<div id="right-column-content">
+<div id="form-message-area">
+<span class="errorTextStyle">[Error messages go here]</span>
+<span class="successTextStyle">[success messages go here]</span>
+</div>
+
+@using (Html.BeginForm("Update", "SystemSettings", FormMethod.Post, new { id = "SystemSettingsForm" }))
+{ 
+    <fieldset> 
+        <div class="settings-page-section">
+        <h3 class="settings-section-header">Security Settings</h3>
+        <span class="instructional-text">The user's account will be locked after n number of failed log in attempts. The account will remain locked until they further verify their identity.</span>
+        <div class="form-field">
+        @Html.Label("Number of failed logins allowed:")
+        @Html.TextBoxFor(model => model.NumberOfFailedLoginsAllowed, new { @class = "textBox-x-small" }) 
+        </div>
+        
+        <span class="instructional-text-no-bottom-margin">This will be seen when users are locked out and need to verify their identity.</span>
+        <div class="form-field">
+        @Html.LabelFor(model => model.RequireCAPTCHAWhenLockedOut, "Force user to enter CAPTCHA when they are locked out. (Recommended)", new { @class = "list-style-form-element-text-normal" })
+        @Html.CheckBoxFor(model => model.RequireCAPTCHAWhenLockedOut)
+        </div>
+
+        <span class="instructional-text-no-bottom-margin">In addition to username and password users logging in will need to ente CAPTCHA data.</span>
+        <div class="form-field-small-bottom-margin">
+        @Html.LabelFor(model => model.RequireCAPTCHAOnLogin, "Force user to enter CAPTCHA at log in.", new { @class = "list-style-form-element-text-normal" })
+        @Html.CheckBoxFor(model => model.RequireCAPTCHAOnLogin)
+        </div>
+        </div>
+
+        <div class="settings-page-section">
+        <h3 class="settings-section-header">Style Settings</h3>
+        <div id="select-profile-photo-action-area"><span class="bold-12px">Select image (jpg, png and gif files only):</span><a href="#" class="default-red-link-box">Choose Image</a></div>
+        <span class="instructional-text" id="selected-image-path">@Html.DisplayFor(model => model.LogoImagePath)Selected Image Path: C:/Desktop/blog_logo_small_72dpi.png</span>
+        <div id="selected-profile-photo-display-area">
+        <span class="bold-12px">Current logo:</span>
+        <img src="../../Images/System/user_created_system_images/default_profile_photo_thumbnail.png" id="user-profile-thumbnail" alt="User Profile Thumbnail"/></div>
+        </div>
+
+        @Html.Partial("_FormActionButtonControl")
+    </fieldset> 
+}
+
+</div>
+
